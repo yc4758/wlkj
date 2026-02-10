@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来科技探索 - 探索未知的边界</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tech: {
+                            blue: '#0A84FF',
+                            cyan: '#00D68F',
+                            purple: '#9C27B0',
+                            dark: '#0A0E17',
+                            light: '#F5F7FA'
+                        }
+                    },
+                    fontFamily: {
+                        futuristic: ['Segoe UI', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-glow {
+                text-shadow: 0 0 10px rgba(10, 132, 255, 0.7);
+            }
+            .bg-glow {
+                box-shadow: 0 0 20px rgba(10, 132, 255, 0.5);
+            }
+            .neon-border {
+                box-shadow: 0 0 10px rgba(10, 132, 255, 0.5), inset 0 0 10px rgba(10, 132, 255, 0.2);
+            }
+            .parallax {
+                transform: translateZ(-1px) scale(2);
+            }
+            .scroll-reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s ease;
+            }
+            .scroll-reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .hover-lift {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .hover-lift:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 25px rgba(10, 132, 255, 0.3);
+            }
+            .gradient-text {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .grid-pattern {
+                background-image: linear-gradient(rgba(10, 132, 255, 0.1) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(10, 132, 255, 0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="font-futuristic bg-tech-dark text-tech-light min-h-screen overflow-x-hidden">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-tech-dark/80 backdrop-blur-md border-b border-tech-blue/20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-tech-blue to-tech-cyan gradient-text flex items-center">
+                <i class="fa fa-rocket mr-2 text-tech-blue"></i>
+                <span>未来科技探索</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-tech-light hover:text-tech-blue transition-colors">首页</a>
+                <a href="#features" class="text-tech-light hover:text-tech-blue transition-colors">技术特色</a>
+                <a href="#explore" class="text-tech-light hover:text-tech-blue transition-colors">探索领域</a>
+                <a href="#about" class="text-tech-light hover:text-tech-blue transition-colors">关于我们</a>
+            </div>
+            <button class="md:hidden text-2xl text-tech-blue">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- 背景效果 -->
+        <div class="absolute inset-0 grid-pattern"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-tech-dark to-tech-dark/90"></div>
+        
+        <!-- 3D 球体效果 -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-[600px] h-[600px] rounded-full border border-tech-blue/30 animate-spin-slow"></div>
+            <div class="absolute w-[400px] h-[400px] rounded-full border border-tech-cyan/30 animate-spin-slow" style="animation-direction: reverse;"></div>
+            <div class="absolute w-[200px] h-[200px] rounded-full border border-tech-purple/30 animate-spin-slow"></div>
+        </div>
+        
+        <!-- 内容 -->
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-6 bg-gradient-to-r from-tech-blue via-tech-cyan to-tech-purple gradient-text text-glow">
+                探索未来科技
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] mb-10 text-tech-light/80 max-w-3xl mx-auto">
+                突破科技边界，开启未来无限可能。从人工智能到量子计算，从太空探索到生物科技，我们致力于探索前沿科技的无限潜力。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#features" class="bg-tech-blue hover:bg-tech-blue/80 text-white font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 bg-glow">
+                    探索技术
+                </a>
+                <a href="#explore" class="bg-transparent border border-tech-blue hover:border-tech-cyan text-tech-blue hover:text-tech-cyan font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 neon-border">
+                    了解更多
+                </a>
+            </div>
+        </div>
+        
+        <!-- 滚动指示器 -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fa fa-chevron-down text-tech-blue text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- 技术特色展示区 -->
+    <section id="features" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-center mb-16 bg-gradient-to-r from-tech-blue to-tech-cyan gradient-text text-glow">
+                前沿技术特色
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特色卡片 1 -->
+                <div class="bg-tech-dark/50 border border-tech-blue/20 rounded-xl p-6 hover-lift scroll-reveal">
+                    <div class="w-16 h-16 bg-tech-blue/20 rounded-full flex items-center justify-center mb-6 bg-glow">
+                        <i class="fa fa-microchip text-3xl text-tech-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-tech-blue">人工智能</h3>
+                    <p class="text-tech-light/70 mb-4">
+                        深度学习、神经网络、自然语言处理，AI技术正在重塑我们的世界，从智能助手到自动驾驶，无限可能正在展开。
+                    </p>
+                    <a href="#" class="text-tech-cyan hover:text-tech-blue transition-colors flex items-center">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- 特色卡片 2 -->
+                <div class="bg-tech-dark/50 border border-tech-blue/20 rounded-xl p-6 hover-lift scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-tech-purple/20 rounded-full flex items-center justify-center mb-6 bg-glow">
+                        <i class="fa fa-atom text-3xl text-tech-purple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-tech-purple">量子计算</h3>
+                    <p class="text-tech-light/70 mb-4">
+                        突破传统计算极限，量子计算机将彻底改变密码学、材料科学和药物研发，开启计算能力的新纪元。
+                    </p>
+                    <a href="#" class="text-tech-cyan hover:text-tech-purple transition-colors flex items-center">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- 特色卡片 3 -->
+                <div class="bg-tech-dark/50 border border-tech-blue/20 rounded-xl p-6 hover-lift scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-tech-cyan/20 rounded-full flex items-center justify-center mb-6 bg-glow">
+                        <i class="fa fa-rocket text-3xl text-tech-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-tech-cyan">太空探索</h3>
+                    <p class="text-tech-light/70 mb-4">
+                        从火星殖民到深空探测，太空技术的发展正在将人类的足迹延伸到宇宙的每一个角落，开启星际时代。
+                    </p>
+                    <a href="#" class="text-tech-cyan hover:text-tech-cyan/80 transition-colors flex items-center">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- 特色卡片 4 -->
+                <div class="bg-tech-dark/50 border border-tech-blue/20 rounded-xl p-6 hover-lift scroll-reveal">
+                    <div class="w-16 h-16 bg-tech-blue/20 rounded-full flex items-center justify-center mb-6 bg-glow">
+                        <i class="fa fa-dna text-3xl text-tech-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-tech-blue">生物科技</h3>
+                    <p class="text-tech-light/70 mb-4">
+                        基因编辑、合成生物学、脑机接口，生物科技的突破正在改变医疗、农业和人类自身的未来。
+                    </p>
+                    <a href="#" class="text-tech-cyan hover:text-tech-blue transition-colors flex items-center">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- 特色卡片 5 -->
+                <div class="bg-tech-dark/50 border border-tech-blue/20 rounded-xl p-6 hover-lift scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-tech-purple/20 rounded-full flex items-center justify-center mb-6 bg-glow">
+                        <i class="fa fa-vr-cardboard text-3xl text-tech-purple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-tech-purple">虚拟现实</h3>
+                    <p class="text-tech-light/70 mb-4">
+                        沉浸式体验、元宇宙、数字孪生，虚拟现实技术正在模糊现实与数字世界的界限，创造全新的交互方式。
+                    </p>
+                    <a href="#" class="text-tech-cyan hover:text-tech-purple transition-colors flex items-center">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- 特色卡片 6 -->
+                <div class="bg-tech-dark/50 border border-tech-blue/20 rounded-xl p-6 hover-lift scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-tech-cyan/20 rounded-full flex items-center justify-center mb-6 bg-glow">
+                        <i class="fa fa-bolt text-3xl text-tech-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-tech-cyan">可再生能源</h3>
+                    <p class="text-tech-light/70 mb-4">
+                        太阳能、风能、氢能，可再生能源技术的突破正在推动全球能源转型，创造可持续的未来。
+                    </p>
+                    <a href="#" class="text-tech-cyan hover:text-tech-cyan/80 transition-colors flex items-center">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 探索领域详情区 -->
+    <section id="explore" class="py-20 relative bg-tech-dark/30">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-center mb-16 bg-gradient-to-r from-tech-purple to-tech-blue gradient-text text-glow">
+                探索未来领域
+            </h2>
+            
+            <!-- 探索项 1 -->
+            <div class="flex flex-col lg:flex-row gap-10 items-center mb-20 scroll-reveal">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=futuristic%20artificial%20intelligence%20technology%2C%20neural%20networks%2C%20digital%20brain%2C%20cyberpunk%20style%2C%20high%20quality&image_size=landscape_16_9" alt="人工智能" class="w-full rounded-xl shadow-2xl bg-glow">
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-tech-blue/20 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-tech-purple/20 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-tech-blue text-glow">人工智能的未来</h3>
+                    <p class="mb-4 text-tech-light/80">
+                        人工智能正在从弱人工智能向强人工智能迈进，未来的AI将具备理解、学习、推理和创造的能力，成为人类的智能伙伴。
+                    </p>
+                    <p class="mb-6 text-tech-light/80">
+                        从自动驾驶到医疗诊断，从金融分析到创意创作，AI技术将深度融入各个行业，带来前所未有的效率和创新。同时，我们也需要关注AI伦理、隐私保护等重要问题。
+                    </p>
+                    <a href="#" class="inline-flex items-center text-tech-cyan hover:text-tech-blue transition-colors">
+                        深入了解 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 探索项 2 -->
+            <div class="flex flex-col lg:flex-row-reverse gap-10 items-center mb-20 scroll-reveal">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=futuristic%20space%20exploration%2C%20mars%20colonization%2C%20space%20station%2C%20futuristic%20design%2C%20high%20quality&image_size=landscape_16_9" alt="太空探索" class="w-full rounded-xl shadow-2xl bg-glow">
+                        <div class="absolute -top-4 -left-4 w-20 h-20 bg-tech-cyan/20 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-tech-blue/20 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-tech-cyan text-glow">太空探索新时代</h3>
+                    <p class="mb-4 text-tech-light/80">
+                        人类的太空探索正在进入一个新的时代，从月球基地到火星殖民，从太空旅游到深空探测，我们正在一步步实现星际文明的梦想。
+                    </p>
+                    <p class="mb-6 text-tech-light/80">
+                        私营航天公司的崛起、可重复使用火箭技术的突破、太空资源的开发，这些都为太空探索注入了新的活力。未来，人类将成为多行星物种，开启星际探索的新纪元。
+                    </p>
+                    <a href="#" class="inline-flex items-center text-tech-cyan hover:text-tech-blue transition-colors">
+                        深入了解 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 探索项 3 -->
+            <div class="flex flex-col lg:flex-row gap-10 items-center scroll-reveal">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=futuristic%20quantum%20computer%2C%20quantum%20bits%2C%20advanced%20technology%2C%20blue%20glow%2C%20high%20quality&image_size=landscape_16_9" alt="量子计算" class="w-full rounded-xl shadow-2xl bg-glow">
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-tech-purple/20 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-tech-cyan/20 rounded-full blur-xl"></div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-tech-purple text-glow">量子计算革命</h3>
+                    <p class="mb-4 text-tech-light/80">
+                        量子计算将彻底改变我们处理复杂问题的能力，从密码破解到材料设计，从药物研发到气候模拟，量子计算机将在各个领域带来革命性的突破。
+                    </p>
+                    <p class="mb-6 text-tech-light/80">
+                        随着量子比特数量的增加和量子纠错技术的进步，量子计算机将逐步实现实用化，成为解决人类重大挑战的关键工具。量子互联网的建设也将开启安全通信的新纪元。
+                    </p>
+                    <a href="#" class="inline-flex items-center text-tech-cyan hover:text-tech-blue transition-colors">
+                        深入了解 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-center mb-16 bg-gradient-to-r from-tech-cyan to-tech-purple gradient-text text-glow">
+                关于我们
+            </h2>
+            <div class="max-w-3xl mx-auto text-center scroll-reveal">
+                <p class="text-xl mb-8 text-tech-light/80">
+                    我们是一群热爱科技、勇于探索的未来主义者，致力于追踪和研究前沿科技的发展趋势，探索科技与人类未来的无限可能。
+                </p>
+                <p class="mb-10 text-tech-light/80">
+                    通过深入分析最新的科技突破、行业动态和未来趋势，我们希望为您呈现一个全面、前瞻的科技视野，激发更多人对未来的想象和创造。
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="bg-tech-blue/20 hover:bg-tech-blue/30 text-tech-blue hover:text-tech-cyan font-medium py-2 px-6 rounded-full transition-all border border-tech-blue/30">
+                        联系我们
+                    </a>
+                    <a href="#" class="bg-transparent hover:bg-tech-purple/20 text-tech-light hover:text-tech-purple font-medium py-2 px-6 rounded-full transition-all border border-tech-purple/30">
+                        加入我们
+                    </a>
+                    <a href="#" class="bg-transparent hover:bg-tech-cyan/20 text-tech-light hover:text-tech-cyan font-medium py-2 px-6 rounded-full transition-all border border-tech-cyan/30">
+                        订阅资讯
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-tech-dark/80 border-t border-tech-blue/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="#" class="text-2xl font-bold bg-gradient-to-r from-tech-blue to-tech-cyan gradient-text flex items-center mb-4 md:mb-0">
+                    <i class="fa fa-rocket mr-2 text-tech-blue"></i>
+                    <span>未来科技探索</span>
+                </a>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-tech-light hover:text-tech-blue transition-colors">
+                        <i class="fa fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-tech-light hover:text-tech-blue transition-colors">
+                        <i class="fa fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-tech-light hover:text-tech-blue transition-colors">
+                        <i class="fa fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-tech-light hover:text-tech-blue transition-colors">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-tech-blue/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-tech-light/60 text-sm mb-4 md:mb-0">
+                        &copy; 2026 未来科技探索. 保留所有权利.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-tech-light/60 hover:text-tech-blue text-sm transition-colors">隐私政策</a>
+                        <a href="#" class="text-tech-light/60 hover:text-tech-blue text-sm transition-colors">使用条款</a>
+                        <a href="#" class="text-tech-light/60 hover:text-tech-blue text-sm transition-colors">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
